@@ -1,4 +1,4 @@
-FROM 416670754337.dkr.ecr.eu-west-2.amazonaws.com/ci-base-build:1.0.6
+FROM 416670754337.dkr.ecr.eu-west-2.amazonaws.com/ci-base-build:1.1.0
 
 ARG ARTIFACTORY_URL=""
 ENV ARTIFACTORY_URL=${ARTIFACTORY_URL}
@@ -7,7 +7,7 @@ ARG IVY_VERSION="2.6.0"
 
 RUN dnf upgrade -y && \
     dnf install -y \
-    java-21-amazon-corretto-21.0.11* \
+    java-21-amazon-corretto-21.0.12* \
     maven-amazon-corretto21.noarch && \
     dnf clean all
 
