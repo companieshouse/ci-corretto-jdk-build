@@ -1,4 +1,4 @@
-FROM 416670754337.dkr.ecr.eu-west-2.amazonaws.com/ci-base-build:1.1.1
+FROM 416670754337.dkr.ecr.eu-west-2.amazonaws.com/ci-base-build:1.2.0
 
 ARG ARTIFACTORY_URL=""
 ENV ARTIFACTORY_URL=${ARTIFACTORY_URL}
@@ -11,7 +11,7 @@ ARG MAVEN_SHA512="831a8591fe20c8243b1dbe7d71e3244f31d1665b0804b2e825e38cbbe5ce0c
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN dnf upgrade -y && \
-    dnf install -y java-25-amazon-corretto-devel-25.0.4* && \
+    dnf install -y java-25-amazon-corretto-devel-25.0.5* && \
     dnf clean all
 
 ENV JAVA_HOME=/usr/lib/jvm/java-25-amazon-corretto
