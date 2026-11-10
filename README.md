@@ -5,7 +5,6 @@ Image used for Amazon Corretto 25 Maven application builds
 
 - Amazon Corretto 25 JDK (`java-25-amazon-corretto-devel`), with `JAVA_HOME=/usr/lib/jvm/java-25-amazon-corretto`
 - Apache Maven from archive.apache.org, checked against the SHA-512 sum in the Dockerfile
-- `configure-maven`, which points Maven at Artifactory
 
 ## Build ARGs
 
@@ -13,7 +12,6 @@ The following Docker build arguments are supported
 
 | Argument        | Default        | Description                                          |
 | --------------- | -------------- | ---------------------------------------------------- |
-| ARTIFACTORY_URL |                | Artifactory URL used by the `configure-maven` script |
 | MAVEN_VERSION   | 3.9.16         | Apache Maven version (set MAVEN_SHA512 to match)     |
 | MAVEN_SHA512    | See Dockerfile | SHA-512 of the Maven `-bin.tar.gz` for MAVEN_VERSION, from archive.apache.org |
 

@@ -1,8 +1,5 @@
 FROM 416670754337.dkr.ecr.eu-west-2.amazonaws.com/ci-base-build:1.2.0
 
-ARG ARTIFACTORY_URL=""
-ENV ARTIFACTORY_URL=${ARTIFACTORY_URL}
-
 # Amazon Linux 2023 has no Maven package bound to Corretto 25, so Maven comes
 # from archive.apache.org and is checked against the SHA-512 sum below.
 ARG MAVEN_VERSION="3.9.16"
@@ -24,5 +21,3 @@ RUN wget -q -O /tmp/apache-maven.tar.gz https://archive.apache.org/dist/maven/ma
     tar -xzf /tmp/apache-maven.tar.gz -C $MAVEN_HOME --strip-components=1 && \
     ln -s $MAVEN_HOME/bin/mvn /usr/bin/mvn && \
     rm /tmp/apache-maven.tar.gz
-
-COPY resources/configure-maven /usr/local/bin/configure-maven
