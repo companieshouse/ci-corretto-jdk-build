@@ -11,6 +11,9 @@ The following Docker build arguments are supported
 
 ## Building the image
 
+The image installs Amazon Corretto 21.0.13.1.2 from the latest Amazon Linux
+repository release, as the base image's default snapshot predates this version.
+
 ```sh
 docker build -t ci-corretto-jdk-build-21 -f ./Dockerfile .
 ```
