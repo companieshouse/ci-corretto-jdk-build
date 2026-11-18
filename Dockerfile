@@ -1,4 +1,4 @@
-FROM 416670754337.dkr.ecr.eu-west-2.amazonaws.com/ci-base-build:1.1.1
+FROM 416670754337.dkr.ecr.eu-west-2.amazonaws.com/ci-base-build:1.2.0
 
 ARG ARTIFACTORY_URL=""
 ENV ARTIFACTORY_URL=${ARTIFACTORY_URL}
@@ -7,9 +7,12 @@ ARG IVY_VERSION="2.6.0"
 
 RUN dnf upgrade -y && \
     dnf install -y \
-    java-21-amazon-corretto-21.0.12* \
+    java-21-amazon-corretto-21.0.13* \
     maven-amazon-corretto21-3.8.4*.noarch && \
     dnf clean all
+
+# Workaround pending release of amazonlinux:2023.12.20261117 to dockerhub
+RUN dnf update -y java-21-amazon-corretto --releasever 2023.12.20261117
 
 # Set home env vars
 ENV ANT_HOME=/usr/lib/ant
