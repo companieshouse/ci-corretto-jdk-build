@@ -3,8 +3,8 @@ FROM 416670754337.dkr.ecr.eu-west-2.amazonaws.com/ci-base-build:1.0.3
 ARG ARTIFACTORY_URL=""
 ENV ARTIFACTORY_URL=${ARTIFACTORY_URL}
 
-RUN dnf update -y && \
-    dnf install -y \
+RUN dnf --releasever=latest update -y && \
+    dnf --releasever=latest install -y \
     java-17-amazon-corretto \
     maven \
     ant \
