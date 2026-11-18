@@ -6,8 +6,8 @@ ARG ANT_VERSION="1.10.18"
 ARG IVY_VERSION="2.6.0"
 
 RUN dnf upgrade -y && \
-    dnf install -y \
-    java-21-amazon-corretto-21.0.12* \
+    dnf --releasever=latest install -y \
+    java-21-amazon-corretto-21.0.13.1.2* \
     maven-amazon-corretto21-3.8.4*.noarch && \
     dnf clean all
 
