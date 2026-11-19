@@ -7,8 +7,8 @@ ARG MAVEN_SHA512="831a8591fe20c8243b1dbe7d71e3244f31d1665b0804b2e825e38cbbe5ce0c
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-RUN dnf upgrade -y && \
-    dnf install -y java-25-amazon-corretto-devel-25.0.5* && \
+RUN dnf upgrade --releasever=latest -y && \
+    dnf install --releasever=latest -y java-25-amazon-corretto-devel-25.0.5.1.2* && \
     dnf clean all
 
 # Workaround pending release of amazonlinux:2023.12.20261117 to dockerhub

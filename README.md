@@ -3,7 +3,7 @@ Image used for Amazon Corretto 25 Maven application builds
 
 ## Contents
 
-- Amazon Corretto 25 JDK (`java-25-amazon-corretto-devel`), with `JAVA_HOME=/usr/lib/jvm/java-25-amazon-corretto`
+- Amazon Corretto 25.0.5.1.2 JDK (`java-25-amazon-corretto-devel`), with `JAVA_HOME=/usr/lib/jvm/java-25-amazon-corretto`
 - Apache Maven from archive.apache.org, checked against the SHA-512 sum in the Dockerfile
 
 ## Build ARGs
@@ -17,8 +17,11 @@ The following Docker build arguments are supported
 
 ## Building the image
 
+The build uses the latest Amazon Linux 2023 repository release to obtain Corretto
+25.0.5.1.2; the base image's default repository snapshot does not contain this version.
+
 ```sh
-docker build -t ci-corretto-jdk-build-25 -f ./Dockerfile .
+docker build --pull -t ci-corretto-jdk-build-25 -f ./Dockerfile .
 ```
 
 ## Running the image
