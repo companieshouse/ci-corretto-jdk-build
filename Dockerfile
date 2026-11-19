@@ -11,6 +11,9 @@ RUN dnf upgrade -y && \
     dnf install -y java-25-amazon-corretto-devel-25.0.5* && \
     dnf clean all
 
+# Workaround pending release of amazonlinux:2023.12.20261117 to dockerhub
+RUN dnf update -y java-25-amazon-corretto-devel --releasever 2023.12.20261117
+
 ENV JAVA_HOME=/usr/lib/jvm/java-25-amazon-corretto
 ENV MAVEN_HOME=/usr/share/maven
 
